@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="WBHue.LightDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WBHue"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:ConnectionId='1' x:Name="lightName" HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="Light" VerticalAlignment="Top" FontSize="18.667" FontWeight="Bold" Width="45"/>
+        <Slider x:ConnectionId='2' Value="{Binding bri, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="lightBriSlider" HorizontalAlignment="Left" Margin="10,182,0,0" VerticalAlignment="Top" Width="340" RenderTransformOrigin="0.487,0.5" Maximum="254"                                           />
+        <ToggleSwitch x:ConnectionId='3'  IsOn="{Binding on, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="lightSwitch" Header="On/Off" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Width="154"                              />
+        <TextBlock x:ConnectionId='4' x:Name="textBlock" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap" Text="Brightness" VerticalAlignment="Top" Width="69"/>
+        <TextBlock x:ConnectionId='5' x:Name="satText" HorizontalAlignment="Left" Margin="10,231,0,0" TextWrapping="Wrap" Text="Saturation" VerticalAlignment="Top"/>
+        <Slider x:ConnectionId='6' Value="{Binding sat, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="lightSatSlider" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top" Width="340" Maximum="254"                                           />
+        <TextBlock x:ConnectionId='7' x:Name="textBlock2" HorizontalAlignment="Left" Margin="10,298,0,0" TextWrapping="Wrap" Text="Hue" VerticalAlignment="Top" Width="27"/>
+        <Slider x:ConnectionId='8' Value="{Binding hue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" x:Name="lightHueSlider" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="340" Maximum="65535"                                           />
+        <Button x:ConnectionId='9' x:Name="back_btn" Content="Go back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"                       />
+    </Grid>
+</Page>
+

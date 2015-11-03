@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WBHue
 {
@@ -14,23 +10,17 @@ namespace WBHue
 
         }
 
-        public int _key;
-
         public int key
         {
-            get
-            {
-                return _key; 
-            }
-            set
-            {
-                _key = value;
-
-                NotifyPropertyChanged("viewmodel updated");
-            }
+            get;
+            set;
+        }
+        public bool on
+        {
+            get;
+            set;
         }
         public string name { get; set; }
-        public bool on { get; set; }
         public int bri { get; set; }
         public int sat { get; set; }
         public int hue { get; set; }

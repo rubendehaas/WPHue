@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WBHue
 {
@@ -35,6 +30,15 @@ namespace WBHue
         public void AddLight(LightModel model)
         {
             rows.Add(model);
+        }
+
+        public void UpdateLight(LightModel model)
+        {
+            var item = rows.FirstOrDefault(r => r == model);
+            if (item != null)
+            {
+                item = model;
+            }
         }
     }
 }

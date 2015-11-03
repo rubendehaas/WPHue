@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Windows.UI.Popups;
 using System.Diagnostics;
-using Windows.Data.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -14,12 +11,13 @@ namespace WBHue
 {
     class ApiManager
     {
+        LightViewModel lvm;
+        string baseUrl = "http://192.168.1.179/api/626b39467d5a4f110a85bc2f0843b7/lights/";
 
-        string baseUrl = "http://localhost:8000/api/newdeveloper/lights";
-
-        public async Task getLights()
+        public async Task getLights(LightViewModel lightViewModel, TaskScheduler context)
         {
-           
+            lvm = lightViewModel;
+
             try
             {
                 var client = new HttpClient();
@@ -33,11 +31,14 @@ namespace WBHue
 
                 string json = await response.Content.ReadAsStringAsync();
 
-                await Task.Run(()=>
+
+
+                await Task.Run(()=> { }).ContinueWith(a =>
                 {
-                    
-                    return parseJson(json);
-                }); 
+                    parseJson(json);
+                },context); 
+
+                
 
             }
             catch (OperationCanceledException)
@@ -46,11 +47,11 @@ namespace WBHue
             }
         }
 
-        public List<LightModel> parseJson(string jsonString)
+        public void parseJson(string jsonString)
         {
-            List<LightModel> lightList = new List<LightModel>();
+
             JObject jsonObject = JObject.Parse(jsonString);
-            LightViewModel lightVM = new LightViewModel();
+            //LightViewModel lightVM = new LightViewModel();
 
             foreach (var light in jsonObject)
             {
@@ -66,24 +67,22 @@ namespace WBHue
                     lightModel.hue = (int)light.Value["state"]["hue"];
                 }
 
-                
-                //lightVM.AddLight(lightModel);
-                lightList.Add(lightModel);
-                
-            }
 
-            return lightList;
+                lvm.AddLight(lightModel);
+            }
         }
 
-        public async Task putLightState()
+        public async Task putLightState(LightModel lm)
         {
             try
             {
-                var jsonString = "{\"on\":false}";
-                var httpContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
+                //var jsonString = "{\"on\":"+ lm.on + "}";
+                var jsn = JsonConvert.SerializeObject(lm);
+
+                var httpContent = new StringContent(jsn, Encoding.UTF8, "application/json");
 
                 var client = new HttpClient();
-                var response = await client.PutAsync(baseUrl+"/1/state", httpContent);
+                var response = await client.PutAsync(baseUrl+lm.key+"/state", httpContent);
 
                 if (!response.IsSuccessStatusCode)
                 {
@@ -92,7 +91,6 @@ namespace WBHue
                 }
 
                 string json = await response.Content.ReadAsStringAsync();
-                Debug.Write(json);
 
             }
             catch (OperationCanceledException)

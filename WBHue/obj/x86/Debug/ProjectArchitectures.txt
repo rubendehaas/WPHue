@@ -1,1 +1,1 @@
-C:\Users\Ruben\documents\visual studio 2015\Projects\WBHue\WBHue\WBHue.csproj;x86
+C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WBHue\WBHue\WBHue.csproj;x86

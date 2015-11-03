@@ -437,3 +437,8 @@ c:\users\ruben\documents\visual studio 2015\Projects\WBHue\WBHue\obj\x86\Debug\C
 C:\Users\Ruben\documents\visual studio 2015\Projects\WBHue\WBHue\bin\x86\Debug\Core\Newtonsoft.Json.dll
 C:\Users\Ruben\documents\visual studio 2015\Projects\WBHue\WBHue\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Users\Ruben\documents\visual studio 2015\Projects\WBHue\WBHue\obj\x86\Debug\Core\Newtonsoft.Json.dll
+C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WBHue\WBHue\bin\x86\Debug\LightDetailPage.xbf
+C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WBHue\WBHue\obj\x86\Debug\LightDetailPage.g.i.cs
+C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WBHue\WBHue\obj\x86\Debug\LightDetailPage.g.cs
+C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WBHue\WBHue\obj\x86\Debug\LightDetailPage.xaml
+C:\Users\Ruben\Documents\Visual Studio 2015\Projects\WBHue\WBHue\obj\x86\Debug\LightDetailPage.xbf
